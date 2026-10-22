@@ -1,0 +1,15 @@
+# Cloudflare Pages configuration. When this file exists, it is the source of truth
+# for bindings — D1 bindings in the Pages dashboard become read-only.
+name = "wedding-invitation"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-10-01"
+
+# Local dev (`wrangler pages dev`, `--local` migrations) uses a SQLite file under
+# `.wrangler/state/`, never the production database.
+# Production uses the remote D1 database identified by `database_id`.
+# Replace the placeholder with the ID printed by `wrangler d1 create wedding-db`.
+[[d1_databases]]
+binding = "DB"
+database_name = "wedding-db"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
