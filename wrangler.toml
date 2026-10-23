@@ -9,7 +9,7 @@ compatibility_date = "2026-10-01"
 # Production uses the remote D1 database identified by `database_id`.
 # Replace the placeholder with the ID printed by `wrangler d1 create wedding-db`.
 [[d1_databases]]
-binding = "DB"
-database_name = "wedding-db"
-database_id = "00000000-0000-0000-0000-000000000000"
+binding = "wedding_tv_db"
+database_name = "wedding-tv-db"
+database_id = "4ef29788-d362-4eb6-8d20-a45baa2bf5f8"
 migrations_dir = "migrations"
