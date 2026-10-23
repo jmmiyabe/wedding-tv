@@ -11,10 +11,17 @@
     "preview": "vite build && wrangler pages dev dist --port 8788",
     "lint": "eslint .",
     "typecheck": "tsc -b",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:smoke": "node scripts/smoke.mjs",
+    "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm build",
     "db:migrate:local": "wrangler d1 migrations apply wedding-db --local",
-    "db:migrate:remote": "wrangler d1 migrations apply wedding-db --remote"
+    "db:migrate:remote": "wrangler d1 migrations apply wedding-db --remote",
+    "db:seed:local": "node scripts/seed-dev.mjs",
+    "admin": "node scripts/admin.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/cormorant-garamond": "5.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -32,6 +39,7 @@
     "typescript": "~6.0.0",
     "typescript-eslint": "^8.72.0",
     "vite": "^8.3.5",
+    "vitest": "5.0.3",
     "wrangler": "^4.151.3"
   }
 }

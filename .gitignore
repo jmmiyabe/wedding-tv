@@ -7,8 +7,18 @@ __v0_jsx-dev-runtime.ts
 .v0-trash/
 .vercel/
 
-# Environment variables
+# Environment variables and local secrets
 .env*.local
+.dev.vars*
+
+# Build output
+dist/
+
+# Wrangler local state: the local D1 database can contain guest data
+.wrangler/
+
+# Exports downloaded from the admin dashboard
+wedding-rsvps-*.csv
 
 # Common ignores
 node_modules

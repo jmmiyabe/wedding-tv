@@ -15,5 +15,5 @@
     "noUnusedParameters": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["functions", "server"]
+  "include": ["functions", "server", "shared"]
 }
