@@ -11,12 +11,12 @@ export default tseslint.config(
     languageOptions: { globals: globals.browser },
   },
   {
-    files: ["functions/**/*.ts", "server/**/*.ts"],
+    files: ["functions/**/*.ts", "server/**/*.ts", "shared/**/*.ts"],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     languageOptions: { globals: globals.serviceworker },
   },
   {
-    files: ["*.{js,ts}"],
+    files: ["*.{js,ts}", "scripts/**/*.mjs", "tests/**/*.{ts,tsx}"],
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     languageOptions: { globals: globals.node },
   },

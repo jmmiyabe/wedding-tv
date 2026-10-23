@@ -1,5 +1,7 @@
 import type { Env } from "../../server/env";
-import { errorResponse } from "../../server/http";
+import { handleApiRequest } from "../../server/router";
 
-// Unknown /api/* routes return JSON 404 instead of falling through to the SPA's index.html.
-export const onRequest: PagesFunction<Env> = () => errorResponse(404, "not_found");
+// All /api/* routes except /api/health are dispatched by server/router.ts, which
+// enforces per-route access control. Unknown paths return a JSON 404 instead of
+// falling through to the SPA's index.html.
+export const onRequest: PagesFunction<Env> = ({ request, env }) => handleApiRequest(request, env);

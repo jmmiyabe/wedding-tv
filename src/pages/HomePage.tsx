@@ -1,16 +1,32 @@
-import { PageShell } from "../components/PageShell";
+import { useEffect, useState } from "react";
+import { coupleNames } from "../../shared/wedding";
+import { enableReveal } from "../components/Reveal";
+import { Countdown } from "./home/Countdown";
+import { Hero } from "./home/Hero";
+import { Contact, Details, Footer, Gallery, GuestGuide, RsvpCallout, Schedule, Story } from "./home/Sections";
 
 export default function HomePage() {
+  const [now] = useState(() => Date.now());
+
+  useEffect(() => {
+    document.title = `${coupleNames()} · Wedding Invitation`;
+    enableReveal();
+  }, []);
+
   return (
-    <PageShell>
-      <p className="text-xs font-medium uppercase tracking-[0.3em] text-accent">Save the date</p>
-      <h1 className="mt-6 text-balance font-serif text-4xl leading-tight sm:text-5xl">
-        Wedding Invitation
-      </h1>
-      <div aria-hidden="true" className="mx-auto my-8 h-px w-16 bg-accent" />
-      <p className="text-pretty leading-relaxed text-muted">
-        Our invitation and RSVP details will be shared here soon.
-      </p>
-    </PageShell>
+    <>
+      <Hero />
+      <main>
+        <Countdown />
+        <Details />
+        <Schedule />
+        <GuestGuide />
+        <Story />
+        <Gallery />
+        <RsvpCallout now={now} />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
